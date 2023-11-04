@@ -160,22 +160,25 @@ module.exports = {
       if (students.length === 0) {
         errors.department = "No Student found";
         return res.status(404).json(errors);
+      }else{
+
+        await res.status(200).json({
+           result: students.map((student) => {
+             var student = {
+               _id: student._id,
+               registrationNumber: student.registrationNumber,
+               name: student.name,
+             };
+             return student;
+           }),
+           subjectCode: subjectList.map((sub) => {
+             return sub.subjectCode;
+           }),
+         });
       }
-      res.status(200).json({
-        result: students.map((student) => {
-          var student = {
-            _id: student._id,
-            registrationNumber: student.registrationNumber,
-            name: student.name,
-          };
-          return student;
-        }),
-        subjectCode: subjectList.map((sub) => {
-          return sub.subjectCode;
-        }),
-      });
     } catch (err) {
-      console.log("error in faculty fetchStudents", err.message);
+      console.log("error in faculty fetchStudents", err);
+      // alert('No Student Found')
     }
   },
   markAttendence: async (req, res, next) => {

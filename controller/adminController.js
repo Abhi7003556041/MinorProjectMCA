@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs')
 const gravatar = require('gravatar')
 const jwt = require('jsonwebtoken')
-
+const { ObjectId } = require('mongodb')
 //Validation
 const validateAdminRegisterInput = require('../validation/adminRegister')
 const validateFacultyRegisterInput = require('../validation/facultyRegister')
@@ -11,6 +11,8 @@ const validateSubjectRegisterInput = require('../validation/subjectRegister')
 
 //Models
 const Subject = require('../models/subject')
+const Exam = require('../models/exam')
+
 const Student = require('../models/student')
 const Faculty = require('../models/faculty')
 const Admin = require('../models/admin')
@@ -415,6 +417,62 @@ module.exports = {
             res.status(400).json({ message: `error in getting all Subjects", ${err.message}` })
         }
     },
+
+    addExam: async (req,res,next) => {
+        try {
+           
+            const {exam,fees, date } = req.body
+            console.log('object,r',req.body)
+            const examm = await Exam.find({ exam:exam })
+            console.log('subject',examm)
+            if (exam) {
+                errors.examFees = "Given exam is already added"
+                return res.status(400).json(errors)
+            }
+            const NewExam = await new Exam({
+                exam:exam,
+                fees:fees,
+                date:date
+            })
+            console.log('NewExam',NewExam)
+         
+            const stat = await NewExam.save()
+            console.log('sucesss Staratat',stat)
+            return res.status(200).json({ success: true, message: "Exam Added suucessfully",Data:stat })
+        }
+        catch (err) {
+            console.log(`error in adding new exam", ${err}`)
+        }
+    },
+
+    getAllExam: async (req, res, next) => {
+        try {
+            const allExam = await Exam.find({})
+            if (!allExam) {
+                return res.status(404).json({ message: "You havent registered any exam yet." })
+            }
+            res.status(200).json(allExam)
+        }
+        catch (err) {
+            res.status(400).json({ message: `error in getting all Exam", ${err.message}` })
+        }
+    },
+    getFeesByExamId: async (req, res, next) => {
+        try {
+            console.log('id',req.body.id)
+            const allExam = await Exam.findOne({"exam":(req.body.id)})
+            console.log('allExam',allExam)
+            if (!allExam) {
+                return res.status(404).json({ message: "You havent registered any exam yet." })
+            }
+            res.status(200).json({'Fee':allExam.fees})
+        }
+        catch (err) {
+            res.status(400).json({ message: `error in getting all Exam", ${err.message}` })
+        }
+    },
+
+
     getAllFaculty: async (req, res, next) => {
         try {
             const { department } = req.body

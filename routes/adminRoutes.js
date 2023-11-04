@@ -6,7 +6,10 @@ const { adminLogin, addFaculty, addStudent,
     addSubject, getAllFaculty, getAllStudents, getAllSubjects,
     addAdmin, 
     getAllStudent,
-    getAllSubject} = require('../controller/adminController')
+    getAllSubject,
+    addExam,
+    getAllExam,
+    getFeesByExamId} = require('../controller/adminController')
 
 router.post('/login', adminLogin)
 router.post('/addAdmin', addAdmin )
@@ -19,5 +22,11 @@ router.post('/addStudent',addStudent)
 router.get('/getStudents', getAllStudents)
 router.post('/addSubject', addSubject)
 router.get('/getSubjects',getAllSubjects)
+router.post('/addExam', addExam)
+router.get('/getAllExam',getAllExam)
+router.post('/addExam', addExam)
+router.post('/getFeesByExamId', getFeesByExamId)
+
+
 
 module.exports = router

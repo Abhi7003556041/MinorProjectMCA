@@ -2,11 +2,21 @@ const express = require('express')
 const passport = require('passport')
 const router = express.Router()
 const upload = require('../utils/multer')
+const multer = require("multer");
+// const check_auth = require("../middleware/check_auth");
+const fileUploadStorage = multer.diskStorage({
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + file.originalname);
+  },
+  destination: "public/uploads/",
+});
+const uploadInfo = multer({ storage: fileUploadStorage });
 
+console.log("multer is configured & redy to use");
 const { checkAttendence, getAllStudents, getStudentByName, studentLogin,
     updatePassword, forgotPassword, getStudentByRegName,
     postOTP, postPrivateChat, getPrivateChat, differentChats,
-    previousChats, updateProfile, getAllSubjects, getMarks, studentSignup } = require('../controller/studentController')
+    previousChats, updateProfile, getAllSubjects, getMarks, studentSignup, FeePayment, checkout, verifyPayment, UploadMarksheet } = require('../controller/studentController')
 
 router.post('/login', studentLogin)
 router.post('/signup', studentSignup)
@@ -30,7 +40,7 @@ router.get('/chat/newerChats/:receiverName', differentChats)
     
 router.get('/chat/previousChats/:senderName', previousChats)
     
-router.get('/getMarks',getMarks)
+router.post('/getMarks',getMarks)
 
 router.post('/getAllSubjects', getAllSubjects)
 
@@ -42,5 +52,17 @@ router.post('/getAllStudents', getAllStudents)
 router.post('/getStudentByRegName', getStudentByRegName)
 
 router.post('/getStudentByName', getStudentByName)
+
+router.post('/FeePayment', FeePayment)
+
+router.post('/checkout', checkout)
+
+router.post('/verifyPayment', verifyPayment)
+
+router.post('/UploadMarksheet',uploadInfo.single("image"), UploadMarksheet)
+
+
+
+
 
 module.exports = router
