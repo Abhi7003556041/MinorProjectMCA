@@ -65,6 +65,12 @@ const Home = () => {
                                     <button type="button" className="btn"><Link to="/studentDetails"><li>STUDENTS</li></Link></button>
                                 </li>
                                 <li className="nav-item">
+                                    <button type="button" className="btn"><Link to="/student/examFees"><li>EXAM FEES</li></Link></button>
+                                </li>
+                                <li className="nav-item">
+                                    <button type="button" className="btn"><Link to="/student/uploadMarksheet"><li>EXAMSHEET</li></Link></button>
+                                </li>
+                                <li className="nav-item">
                                     <button type="button" className="btn"><Link to="/studentDetails"><li>NEW CONVERSATION ({store.student.newerChats.length})</li></Link></button>
                                 </li>
                                 <li className="nav-item">

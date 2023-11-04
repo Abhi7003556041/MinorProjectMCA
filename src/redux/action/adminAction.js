@@ -216,6 +216,28 @@ export const adminAddSubject = (subjectCredential) => {
     }
 }
 
+export const adminAddExam = (subjectCredential) => {
+    return async (dispatch) => {
+        try {
+            console.log('subjectCredential',subjectCredential)
+            const { data } = await axios({
+                method: 'Post',
+                url: url + "/api/admin/addExam",
+                data: subjectCredential
+            })
+            console.log('object,data',data)
+            // dispatch(adminAddSubjectFlag(true))
+            alert("Exam Added Successfully")
+        }
+        catch (err) {
+            dispatch({
+                type: SET_ERRORS,
+                payload: err.response.data
+            })
+        }
+    }
+}
+
 
 export const adminAddAdmin = (adminCredentails) => {
     return async (dispatch) => {

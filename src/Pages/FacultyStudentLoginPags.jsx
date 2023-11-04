@@ -6,6 +6,8 @@ import { studentLogin } from '../redux/action/studentAction'
 import classnames from 'classnames'
 
 import '../Style/facultyStudentLogin.css'
+import '../Style/footer.css'
+
 import { adminLogin } from '../redux/action/adminAction'
 import Nav from '../Components/Nav'
 
@@ -269,6 +271,162 @@ const FacultyStudentLoginPags = () => {
                 </div>
             </div>
         </div>
+       
+{/* <div >
+
+  <footer className="text-white text-center text-lg-start bg-dark">
+   
+    <div className="container p-4">
+     
+      <div className="row mt-4">
+       
+        <div className="col-lg-4 col-md-12 mb-4 mb-md-0">
+          <h5 className="text-uppercase mb-4">About company</h5>
+
+          <p>
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+            voluptatum deleniti atque corrupti.
+          </p>
+
+          <p>
+            Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+            molestias.
+          </p>
+
+          <div className="mt-4">
+           
+            <a type="button" className="btn btn-floating btn-light btn-lg"><i className="fab fa-facebook-f"></i></a>
+           
+            <a type="button" className="btn btn-floating btn-light btn-lg"><i className="fab fa-dribbble"></i></a>
+           
+            <a type="button" className="btn btn-floating btn-light btn-lg"><i className="fab fa-twitter"></i></a>
+            
+            <a type="button" className="btn btn-floating btn-light btn-lg"><i className="fab fa-google-plus-g"></i></a>
+           
+          </div>
+        </div>
+   
+
+    
+        <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 className="text-uppercase mb-4 pb-1">Search something</h5>
+
+          <div className="form-outline form-white mb-4">
+            <input type="text" id="formControlLg" className="form-control form-control-lg" />
+            <label className="form-label" for="formControlLg">Search</label>
+          </div>
+
+          <ul className="fa-ul" style={{marginleft: '1.65em'}}>
+            <li className="mb-3">
+              <span className="fa-li"><i className="fas fa-home"></i></span><span className="ms-2">Warsaw, 00-967, Poland</span>
+            </li>
+            <li className="mb-3">
+              <span className="fa-li"><i className="fas fa-envelope"></i></span><span className="ms-2">contact@example.com</span>
+            </li>
+            <li className="mb-3">
+              <span className="fa-li"><i className="fas fa-phone"></i></span><span className="ms-2">+ 48 234 567 88</span>
+            </li>
+          </ul>
+        </div>
+       
+
+       
+        <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 className="text-uppercase mb-4">Opening hours</h5>
+
+          <table className="table text-center text-white">
+            <tbody className="fw-normal">
+              <tr>
+                <td>Mon - Thu:</td>
+                <td>8am - 9pm</td>
+              </tr>
+              <tr>
+                <td>Fri - Sat:</td>
+                <td>8am - 1am</td>
+              </tr>
+              <tr>
+                <td>Sunday:</td>
+                <td>9am - 10pm</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+      </div>
+     
+    </div>
+  
+
+  
+    <div className="text-center p-3" style={{backgroundcolor: 'rgba(0, 0, 0, 0.2)'}}>
+      © 2020 Copyright:
+      <a className="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    
+  </footer>
+
+</div> */}
+<footer className="footer-distributed">
+
+<div className="footer-left">
+
+    <h3>Company<span>logo</span></h3>
+
+    <p className="footer-links">
+        <a href="#" className="link-1">Home</a>
+        
+        <a href="#">Blog</a>
+    
+        <a href="#">Pricing</a>
+    
+        <a href="#">About</a>
+        
+        <a href="#">Faq</a>
+        
+        <a href="#">Contact</a>
+    </p>
+
+    <p className="footer-company-name">Company Name © 2015</p>
+</div>
+
+<div className="footer-center">
+
+    <div>
+        <i className="fa fa-map-marker"></i>
+        <p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+    </div>
+
+    <div>
+        <i className="fa fa-phone"></i>
+        <p>+1.555.555.5555</p>
+    </div>
+
+    <div>
+        <i className="fa fa-envelope"></i>
+        <p><a href="mailto:support@company.com">support@company.com</a></p>
+    </div>
+
+</div>
+
+<div className="footer-right">
+
+    <p className="footer-company-about">
+        <span>About the company</span>
+        Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+    </p>
+
+    <div className="footer-icons">
+
+        <a href="#"><i className="fa fa-facebook"></i></a>
+        <a href="#"><i className="fa fa-twitter"></i></a>
+        <a href="#"><i className="fa fa-linkedin"></i></a>
+        <a href="#"><i className="fa fa-github"></i></a>
+
+    </div>
+
+</div>
+
+</footer>
         </div>
     )
 }

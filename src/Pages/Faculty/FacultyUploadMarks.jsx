@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import { fetchStudents, uploadMarks } from '../../redux/action/facultyAction'
 import FacultyHomeHelper from '../../Components/FacultyHomeHelper'
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 
 
 
@@ -20,9 +21,21 @@ const FacultyUploadMarks = () => {
     const [exam, setExam] = useState("")
     const [error, setError] = useState({})
     const [errorHelper, setErrorHelper] = useState({})
+    const [allexam, setAllExam] = useState([])
+    const [ExamId, setExamId] = useState("")
 
+    const url = "http://localhost:5000"
 
-
+    const GetExam = async() => {
+        axios({
+            method: 'Get',
+            url: url + "/api/admin/getAllExam",
+        }).then((res)=>{
+            console.log('allllexammm',res.data)
+            setAllExam(res.data)
+        })
+        .catch((err)=>err && console.log('err',err))
+    }
 
     const handleInputChange = (value, _id) => {
 
@@ -56,11 +69,13 @@ const FacultyUploadMarks = () => {
 
     }
 
-
+    useEffect(()=>{
+        GetExam()
+    },[])
 
     const secondFormHandler = (e) => {
         e.preventDefault()
-        dispatch(uploadMarks(subjectCode, exam, totalMarks, marks, department, section
+        dispatch(uploadMarks(subjectCode, ExamId, totalMarks, marks, department, section
         ))
     }
 
@@ -166,15 +181,21 @@ const FacultyUploadMarks = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="examId">Exam</label>
-                                <select onChange={(e) => setExam(e.target.value)} value={exam} className={classnames("form-control",
+                                <select onChange={(e) =>{
+                                    console.log('wewewewe',(e.target.value))
+                                    setExam(e.target.value)
+                                    setExamId(allexam.filter((re)=>re.exam == e.target.value)[0]._id)
+                                } 
+                            } value={exam} className={classnames("form-control",
                                     {
                                         'is-invalid': errorHelper.exam
 
-                                    })} id="examId">
+                                    })} id="examId" >
                                     <option>Select</option>
-                                    <option value="CycleTest1">Cycle Test 1</option>
-                                    <option value="CycleTest2">Cylce Test 2</option>
-                                    <option value="Semester">Semester</option>
+                                    {allexam.map((re,ind)=>
+                                        <option key={ind} value={re.exam}>{re.exam}</option>
+                                    )}
+                                    
                                 </select>
                                 {errorHelper.exam && (<div classNameName="invalid-feedback">{errorHelper.exam}</div>)}
                             </div>

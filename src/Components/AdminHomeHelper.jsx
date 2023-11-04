@@ -56,6 +56,9 @@ const Home = () => {
                         <li className="nav-item">
                             <button type="button" className="btn"><Link to="/admin/addSubject"><li>ADD SUBJECT</li></Link></button>
                         </li>
+                        {/* <li className="nav-item">
+                            <button type="button" className="btn"><Link to="/admin/allExam"><li>ADD EXAM</li></Link></button>
+                        </li> */}
                         <li className="nav-item">
                             <button type="button" className="btn"><Link to="/admin/addAdmin"><li>ADD ADMIN</li></Link></button>
                         </li>

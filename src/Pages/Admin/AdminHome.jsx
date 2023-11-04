@@ -8,17 +8,17 @@ const AdminHome = () => {
 
     const history = useHistory()
     return (
-        <div>
+        <div className="container-fluid body" id='trail' >
            
             {store.admin.isAuthenticated ? <>
                 <AdminHomeHelper />
-                <div className="container">
+                <div  >
                     <div className="row mt-5">
                         <div className="col-2">
                         </div>
                         <div className="col-8">
                             <div className="row">
-                                <div className="col-md-5">
+                                <div className="col-md-5" style={{marginBottom:'200px'}}>
                                     <div className="card" style={{ width: "18rem" }}>
                                         <img className="card-img-top" src={store.admin.admin.avatar} alt="Card image cap" />
                                         <div className="card-body">

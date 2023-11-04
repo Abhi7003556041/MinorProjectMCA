@@ -51,6 +51,9 @@ const AttendenceFaculty = () => {
         if (store.error || !store.faculty.fetchedStudentsHelper) {
             setIsLoading(false)
         }
+        else{
+            setIsLoading(false)
+        }
         
     }, [store.error, store.faculty.fetchedStudentsHelper])
 
@@ -118,9 +121,7 @@ const AttendenceFaculty = () => {
                                     <option value="A">A</option>
                                     <option value="B">B</option>
                                     <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                    <option value="F">F</option>
+                                   
                                 </select>
                                 {error.section && (<div classNameName="invalid-feedback">{error.section}</div>)}
                             </div>

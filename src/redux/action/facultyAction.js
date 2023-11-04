@@ -68,6 +68,7 @@ export const facultySignup = (facultyCredential) => {
                 data: facultyCredential
             })
             console.log("login response", data)
+            alert("Faculty registerd successfully,check your registered email for Registration number and Password")
            
 
             const { token ,Data,message} = data;
@@ -75,9 +76,8 @@ export const facultySignup = (facultyCredential) => {
             // Set token to local Storage
            
             // Decode token to get user data
-            const decoded = jwt_decode(token);
-            console.log("decodessdd respons5555555555555555555555e", decoded)
-            alert("Faculty registerd successfully,check your registered email for Registration number and Password")
+            // const decoded = jwt_decode(token);
+            // console.log("decodessdd respons5555555555555555555555e", decoded)
             // Set current user
             
         }
@@ -163,6 +163,11 @@ export const fetchStudents = (department, year, section) => {
                 url: url + "/api/faculty/fetchStudents",
                 data: { department, year, section}
             })
+            console.log('data',data)
+            if(data.errors){
+                alert('No Student Found')
+            }
+           
             dispatch(fetchStudentsHelper(data.result))
             dispatch(subjectCodeListHelper(data.subjectCode))
         }
@@ -171,6 +176,7 @@ export const fetchStudents = (department, year, section) => {
                 type: SET_ERRORS,
                 payload: err.response.data
             })
+            alert('No Student Found')
         }
     }
 }

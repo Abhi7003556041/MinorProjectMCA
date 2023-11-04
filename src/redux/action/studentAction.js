@@ -129,15 +129,15 @@ export const studentSignup = (studentCredential) => {
             })
             console.log("login response", data)
            
+            alert("Student registerd successfully,check your registered email for Registration number and Password")
 
             const { token ,Data} = data;
             console.log("login respons5555555555555555555555e", token)
             // Set token to local Storage
            
             // Decode token to get user data
-            const decoded = jwt_decode(token);
-            console.log("decodessdd respons5555555555555555555555e", Data)
-            alert("Student registerd successfully,check your registered email for Registration number and Password")
+            // const decoded = jwt_decode(token);
+            // console.log("decodessdd respons5555555555555555555555e", Data)
             // Set current user
            
         }
@@ -340,6 +340,29 @@ export const studentUpdate = (updatedData) => {
     }
 }
 
+export const studentUploadMarksheet = (updatedData) => {
+    return async () => {
+        try {
+            console.log('dataum',updatedData)
+            const { data } = await axios({
+                method: 'Post',
+                url: url + `/api/student/UploadMarksheet`,
+                headers:{'Content-Type':'multipart/form-data'},
+                data: updatedData
+            })
+            if(data.success){
+                alert("MarkSheet Uploaded Successfully")
+            }
+            else{
+                alert("MarkSheet Uploaded Failed")
+            }
+            console.log('dataum',data,)
+        }
+        catch (err) {
+            console.log("Error in sending message", err.message)
+        }
+    }
+}
 export const getAllSubjects = (Data) => {
     return async (dispatch) => {
         try {
@@ -376,12 +399,13 @@ export const fetchAttendence = (Data) => {
     }
 }
 
-export const getMarks = () => {
+export const getMarks = (Data) => {
     return async (dispatch) => {
         try {
             const { data } = await axios({
-                method: 'Get',
-                url: url + "/api/student/getMarks"
+                method: 'Post',
+                url: url + "/api/student/getMarks",
+                data:Data
             })
            dispatch(getMarksHelper(data.result))
         }
@@ -390,6 +414,7 @@ export const getMarks = () => {
         }
     }
 }
+
 
 
 

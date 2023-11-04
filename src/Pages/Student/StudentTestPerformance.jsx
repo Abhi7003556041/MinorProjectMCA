@@ -10,7 +10,7 @@ const StudentTestPerformance = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getMarks())
+        dispatch(getMarks({department:store.student.student.student.department,id:store.student.student.student._id}))
     }, [])
 
 

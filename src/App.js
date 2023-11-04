@@ -50,6 +50,9 @@ import AdminGetAllSubject from './Pages/Admin/AdminGetAllSubjects'
 
 import AdminHome from './Pages/Admin/AdminHome'
 import SignUpPage from './Pages/SignUpPage';
+import StudentFees from './Pages/StudentFees';
+import AdminAddExam from './Pages/AddExam';
+import UploadMarksheet from './Pages/UploadMarksheet';
  
 if (window.localStorage.facultyJwtToken) {
   setAuthToken(localStorage.facultyJwtToken);
@@ -121,6 +124,11 @@ function App() {
           <Route exact path="/faculty/uploadMarks" component={FacultyUploadMarks} />
           <Route exact path="/faculty/updateProfile" component={FacultyUpdateProfile} />
           <Route exact path="/student/getAllSubjects" component={StudentSubjectList} />
+          <Route exact path="/student/examFees" component={StudentFees} />
+          <Route exact path="/student/uploadMarksheet" component={UploadMarksheet} />
+          <Route exact path="/admin/allExam" component={AdminAddExam} />
+
+
           <Route exact path="/forgotPassword/:user" component={ForgotPassword} />
           <Route exact path="/chat/:room" component={Chat} />
           <Route exact path="/student/:registrationNumber" component={RecieverUserDetails} />
