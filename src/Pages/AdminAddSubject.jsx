@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import classnames from 'classnames'
 import { adminAddSubject } from '../redux/action/adminAction'
 import AdminHomeHelper from '../Components/AdminHomeHelper'
+import axios from 'axios'
 
 const AdminAddSubject = () => {
     const store = useSelector((store) => store)
@@ -16,24 +17,53 @@ const AdminAddSubject = () => {
     const [year, setYear] = useState('')
     const [error, setError] = useState({})
     const [isLoading, setIsLoading] = useState(false)
-
+    const adminAddSubjectFlag = (data) => {
+        return {
+            type: "ADMIN_ADD_SUBJECT_FLAG",
+            payload: data
+        }
+    }
+    const url = "http://localhost:5000"
 
     useEffect(() => {
         if (store.error) {
             setError(store.error)
         }
     }, [store.error])
-    const formHandler = (e) => {
+    const formHandler = async(e) => {
         e.preventDefault()
         setIsLoading(true)
-        dispatch(adminAddSubject({
-            subjectCode,
-            subjectName,
-            totalLectures:Number(totalLectures),
-            department,
-            year
-        }))
-       
+        const { data } = await axios({
+            method: 'Post',
+            url: url + "/api/admin/addSubject",
+            data: {
+                subjectCode,
+                subjectName,
+                totalLectures:Number(totalLectures),
+                department,
+                year
+            }
+        })
+        console.log('object,data',data)
+        if(data.success){
+
+            dispatch(adminAddSubjectFlag(true))
+            alert("Subject Added Successfully")
+            setIsLoading(false)
+            history.push('/')
+            console.log('object')
+        }
+        else{
+            alert(data.errors)
+            setIsLoading(false)
+            console.log('object')
+
+        }
+      
+    //    setTimeout(()=>{
+    //     setIsLoading(false)
+    //     alert("Subject Added Successfully")
+    //    },2000)
     }
 
     useEffect(() => {
@@ -51,11 +81,19 @@ const AdminAddSubject = () => {
             setDepartment('')
             setYear('')
         }
-        else setIsLoading(false)
-    }, [store.error, store.admin.adminAddSubjectFlag])
+        else{
+
+            setIsLoading(false)
+            setSubjectName('')
+            setSubjectCode('')
+            setTotalLectures('')
+            setDepartment('')
+            setYear('')
+        } 
+    }, [ store.admin.adminAddSubjectFlag])
 
     return (
-        <div>
+        <div className="container-fluid body" id='trail'>
             {store.admin.isAuthenticated ? <> <AdminHomeHelper />
                 <div className="container mt-5">
                     <div className="row justify-content-center">

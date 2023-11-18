@@ -11,17 +11,39 @@ body, html {
 }
 #trail {
     background: url('./Images/abc.jpeg')
-    center/cover no-repeat fixed ;
-   
+    center/cover no-repeat fixed ;  
    
 }
 
-.register {
-    margin-left: 35%;
-   
-    
-  }
+#traill {
+  background: url('./Images/eee.jpg')
+  center/cover no-repeat fixed ;  
+ 
+}
 
+.register {
+    margin-left: 35% ;  
+  }
+.row {
+  /* width: 100%; */
+  display: flex;
+  flex-direction:row;
+  /* justify-content: space-around; */
+}
+.row1 {
+  width: 100%;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  /* margin-bottom: .5%; */
+  /* margin-top: .3%; */
+  height: 80px;
+  padding-left: 10;
+  margin-left: 10;
+  /* margin:0px */
+
+  align-items: center;
+}
   .button{
     display: block;
     margin-bottom: 10px;
@@ -45,7 +67,7 @@ body, html {
   }
   .logo-image {
     float: left;
-    width: 50px;
+    width: 60px;
     border-radius: 40px;
     margin-top: 5px;
     margin-left: 10px;

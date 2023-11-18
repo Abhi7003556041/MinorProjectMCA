@@ -11,16 +11,16 @@ const FacultyInterface = () => {
     const store = useSelector((store) => store)
     return (
         <>
-            {store.faculty.isAuthenticated ? <>
+            {store.faculty.isAuthenticated ? <div className="container-fluid body" id='trail'>
                 <FacultyHomeHelper />
                 <div className="container">
                     <div className="row mt-5">
-                        <div className="col-md-2">
+                        <div style={{marginBottom:'10%'}} className="col-md-2">
 {
     console.log('storeeeeee',store)
 }
                         </div>
-                        <div className="col-md-8">
+                        <div className="col-md-8"  style={{marginBottom:'10%'}}>
                             <div className="row">
                                 <div className="col-5">
                                     <div className="card" style={{ width: "18rem" }}>
@@ -36,43 +36,43 @@ const FacultyInterface = () => {
                                     <table className="table border">
                                         <tbody>
                                             <tr>
-                                                <td>Name</td>
-                                                <td>{store.faculty.faculty.faculty.name}</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>Name</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>{store.faculty.faculty.faculty.name}</td>
                                             </tr>
                                             <tr>
-                                                <td>Email</td>
-                                                <td>{store.faculty.faculty.faculty.email}</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>Email</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>{store.faculty.faculty.faculty.email}</td>
                                             </tr>
                                             <tr>
-                                                <td>Registration Number</td>
-                                                <td>{store.faculty.faculty.faculty.registrationNumber}</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>Registration Number</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>{store.faculty.faculty.faculty.registrationNumber}</td>
                                             </tr>
                                             <tr>
-                                                <td>Date Of Birth</td>
-                                                <td>{store.faculty.faculty.faculty.dob}</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>Date Of Birth</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>{store.faculty.faculty.faculty.dob}</td>
                                             </tr>
                                             <tr>
-                                                <td>Designation</td>
-                                                <td>{store.faculty.faculty.faculty.designation}</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>Designation</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>{store.faculty.faculty.faculty.designation}</td>
                                             </tr>
                                             <tr>
-                                                <td>Joining Year</td>
-                                                <td>{store.faculty.faculty.faculty.joiningYear}</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>Joining Year</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>{store.faculty.faculty.faculty.joiningYear}</td>
                                             </tr>
                                             <tr>
-                                                <td>Department</td>
-                                                <td>{store.faculty.faculty.faculty.department}</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>Department</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>{store.faculty.faculty.faculty.department}</td>
                                             </tr>
                                             <tr>
-                                                <td>Gender</td>
-                                                <td>{store.faculty.faculty.faculty.gender ? store.faculty.faculty.faculty.gender :
+                                                <td style={{color:'#000',fontWeight:'bold'}}>Gender</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>{store.faculty.faculty.faculty.gender ? store.faculty.faculty.faculty.gender :
 
                                                     "NA"
                                                 }</td>
                                             </tr>
                                             <tr>
-                                                <td>Contact Number</td>
-                                                <td>{store.faculty.faculty.faculty.facultyMobileNumber ?
+                                                <td style={{color:'#000',fontWeight:'bold'}}>Contact Number</td>
+                                                <td style={{color:'#000',fontWeight:'bold'}}>{store.faculty.faculty.faculty.facultyMobileNumber ?
                                                     store.faculty.faculty.faculty.facultyMobileNumber : "NA"}</td>
                                             </tr>
                                         </tbody>
@@ -81,14 +81,12 @@ const FacultyInterface = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-2">
-
-                        </div>
+                       
 
                     </div>
                 </div>
 
-            </> : (history.push('/'))}
+            </div> : (history.push('/'))}
            
         </>
 

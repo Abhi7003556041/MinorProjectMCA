@@ -48,6 +48,10 @@ function SignUpPage() {
         dob: dob,
       })
     );
+    setTimeout(()=>{
+
+      history.push("/");
+    },4000)
   };
   const facultyFormHandler = (e) => {
     setIsLoading(true);
@@ -67,7 +71,10 @@ function SignUpPage() {
       })
     );
    
-    history.push("/");
+    setTimeout(()=>{
+
+      history.push("/");
+    },4000)
   };
 
   const studentFormHandler = (e) => {
@@ -90,7 +97,10 @@ function SignUpPage() {
         subjects:[]
       })
     )
-    history.push("/");
+    setTimeout(()=>{
+
+      history.push("/");
+    },4000)
   };
   const Signup = () => {
     if (Admin) {
@@ -179,7 +189,7 @@ function SignUpPage() {
             value={Admin}
             checked={Admin}
           />
-          <label class="form-check-label" for="inlineRadio1">
+          <label style={{fontWeight:'bold',color:'#fff'}} class="form-check-label" for="inlineRadio1">
             Admin
           </label>
         </div>
@@ -198,7 +208,7 @@ function SignUpPage() {
             value={Faculty}
             checked={Faculty}
           />
-          <label class="form-check-label" for="inlineRadio2">
+          <label style={{fontWeight:'bold',color:'#fff'}} class="form-check-label" for="inlineRadio2">
             Faculty
           </label>
         </div>
@@ -217,7 +227,7 @@ function SignUpPage() {
             value={Student}
             checked={Student}
           />
-          <label class="form-check-label" for="inlineRadio3">
+          <label style={{fontWeight:'bold',color:'#fff'}} class="form-check-label" for="inlineRadio3">
             Student{" "}
           </label>
         </div>
@@ -249,7 +259,7 @@ function SignUpPage() {
                   placeholder="Enter password"
                 />
                 <div className="form-group">
-                  <label htmlFor="departmentId">Department</label>
+                  <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="departmentId">Department</label>
                   <select
                     onChange={(e) => setDepartment(e.target.value)}
                     className="inputbox"
@@ -269,7 +279,7 @@ function SignUpPage() {
                 </div>
                 <div>
                   <div className="form-group">
-                    <label htmlFor="dobId">DOB</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="dobId" >DOB</label>
                     <input
                       onChange={(e) => setDob(e.target.value)}
                       type="date"
@@ -281,7 +291,7 @@ function SignUpPage() {
                     )}
                   </div>
                   <div className="form-group">
-                    <label htmlFor="numberId">Contact Number</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="numberId">Contact Number</label>
                     <input
                       onChange={(e) => setContactNumber(e.target.value)}
                       type="number"
@@ -322,7 +332,7 @@ function SignUpPage() {
                   placeholder="Enter password"
                 />
                 <div className="form-group">
-                  <label htmlFor="departmentId">Department</label>
+                  <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="departmentId">Department</label>
                   <select
                     onChange={(e) => setDepartment(e.target.value)}
                     className="inputbox"
@@ -341,7 +351,7 @@ function SignUpPage() {
                   )}
                 </div>
                 <div className="form-group">
-                  <label htmlFor="designationId">Designation</label>
+                  <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="designationId">Designation</label>
                   <select
                     onChange={(e) => setDesignation(e.target.value)}
                     className="inputbox"
@@ -359,7 +369,7 @@ function SignUpPage() {
                 </div>
                 <div>
                   <div className="form-group">
-                    <label htmlFor="dobId">DOB</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="dobId">DOB</label>
                     <input
                       onChange={(e) => setDob(e.target.value)}
                       type="date"
@@ -372,7 +382,7 @@ function SignUpPage() {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="genderId">Gender</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="genderId">Gender</label>
                     <select
                       onChange={(e) => setGender(e.target.value)}
                       className="inputbox"
@@ -385,7 +395,7 @@ function SignUpPage() {
                     </select>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="Joining" style={{color:'#fff',fontSize:'18px'}}>Joining year</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="Joining" >Joining year</label>
                     <input
                       onChange={(e) => setJoinyear(e.target.value)}
                       type="number"
@@ -394,7 +404,7 @@ function SignUpPage() {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="numberId">Contact Number</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="numberId">Contact Number</label>
                     <input
                       onChange={(e) => setFacultyMobileNumber(e.target.value)}
                       type="number"
@@ -408,7 +418,7 @@ function SignUpPage() {
                     )}
                   </div>
                   <div className="form-group">
-                    <label htmlFor="aadharId">Aadhar Card Number</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="aadharId">Aadhar Card Number</label>
                     <input
                       onChange={(e) => setAadharCard(e.target.value)}
                       type="number"
@@ -444,7 +454,7 @@ function SignUpPage() {
                   placeholder="Enter password"
                 />
                 <div className="form-group">
-                  <label htmlFor="departmentId">Department</label>
+                  <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="departmentId">Department</label>
                   <select
                     onChange={(e) => setDepartment(e.target.value)}
                     className="inputbox"
@@ -463,7 +473,7 @@ function SignUpPage() {
                   )}
                 </div>
                 <div className="form-group">
-                  <label htmlFor="yearId">Year</label>
+                  <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="yearId">Year</label>
                   <select
                     onChange={(e) => setYear(e.target.value)}
                     className="inputbox"
@@ -480,7 +490,7 @@ function SignUpPage() {
                   )}
                 </div>
                 <div className="form-group">
-                    <label htmlFor="Joining" style={{color:'#fff',fontSize:'18px'}}>Joining year</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="Joining" >Joining year</label>
                     <input
                       onChange={(e) => setJoinyear(e.target.value)}
                       type="number"
@@ -489,7 +499,7 @@ function SignUpPage() {
                     />
                   </div>
                 <div className="form-group">
-                  <label htmlFor="sectionId">Section</label>
+                  <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="sectionId">Section</label>
                   <select
                     onChange={(e) => setSection(e.target.value)}
                     className="inputbox"
@@ -507,7 +517,7 @@ function SignUpPage() {
                 </div>
                 <div>
                   <div className="form-group">
-                    <label htmlFor="dobId">DOB</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="dobId">DOB</label>
                     <input
                       onChange={(e) => setDob(e.target.value)}
                       type="date"
@@ -519,7 +529,7 @@ function SignUpPage() {
                     )}
                   </div>
                   <div className="form-group">
-                    <label htmlFor="genderId">Gender</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="genderId">Gender</label>
                     <select
                       onChange={(e) => setGender(e.target.value)}
                       className="inputbox"
@@ -532,7 +542,7 @@ function SignUpPage() {
                     </select>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="numberId">Contact Number</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="numberId">Contact Number</label>
                     <input
                       onChange={(e) => setStuContactNumber(e.target.value)}
                       type="number"
@@ -546,7 +556,7 @@ function SignUpPage() {
                     )}
                   </div>
                   <div className="form-group">
-                    <label htmlFor="fatherId">Father Name</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="fatherId">Father Name</label>
                     <input
                       onChange={(e) => setFatherName(e.target.value)}
                       type="text"
@@ -555,7 +565,7 @@ function SignUpPage() {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="fathercnId">Father Contact Number</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="fathercnId">Father Contact Number</label>
                     <input
                       onChange={(e) => setFatherContactNumber(e.target.value)}
                       type="number"
@@ -564,7 +574,7 @@ function SignUpPage() {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="aadharId">Aadhar Card Number</label>
+                    <label style={{fontWeight:'bold',color:'#fff'}} htmlFor="aadharId">Aadhar Card Number</label>
                     <input
                       onChange={(e) => setAadharCard(e.target.value)}
                       type="number"

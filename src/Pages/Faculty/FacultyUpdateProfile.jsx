@@ -45,7 +45,7 @@ const FacultyUpdateProfile = () => {
         }
     }, [store.faculty.updateProfileFlag])
     return (
-        <div>
+        <div id='trail' style={{height:'100vh'}}>
             {store.faculty.isAuthenticated ? <>
                 <FacultyHomeHelper />
                 <div className="container mt-5">

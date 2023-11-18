@@ -118,15 +118,16 @@ export const adminSignup = (adminCredential) => {
             const { token ,Data} = data;
             console.log("login respons5555555555555555555555e", token)
             // Set token to local Storage
-            localStorage.setItem('adminJwtToken', token);
+            // localStorage.setItem('adminJwtToken', token);
             // Set token to Auth header
-            setAuthToken(token);
+            // setAuthToken(token);
             // Decode token to get user data
-            
+           
+            alert("Admin registerd successfully,check your registered email for Registration Id and Password")
             console.log("decodessdd respons5555555555555555555555e", Data)
 
             // Set current user
-            dispatch(setAdmin(Data))
+            // dispatch(setAdmin(Data))
         }
         catch (err) {
             console.log('erorororo',err)
@@ -226,7 +227,7 @@ export const adminAddExam = (subjectCredential) => {
                 data: subjectCredential
             })
             console.log('object,data',data)
-            // dispatch(adminAddSubjectFlag(true))
+            dispatch(adminAddSubjectFlag(true))
             alert("Exam Added Successfully")
         }
         catch (err) {

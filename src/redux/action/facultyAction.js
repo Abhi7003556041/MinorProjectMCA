@@ -68,7 +68,7 @@ export const facultySignup = (facultyCredential) => {
                 data: facultyCredential
             })
             console.log("login response", data)
-            alert("Faculty registerd successfully,check your registered email for Registration number and Password")
+            alert("Faculty registerd successfully,check your registered email for Registration Id and Password")
            
 
             const { token ,Data,message} = data;

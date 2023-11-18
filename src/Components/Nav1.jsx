@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-const Nav = () => {
+const Nav1 = () => {
   const history = useHistory();
 
   const navStyle = {
@@ -20,7 +20,7 @@ const Nav = () => {
   return (
     <div
       className=" row1 "
-      id="trail"
+      id="traill"
       style={{
         borderBottomWidth: 1,
         borderBottomColor: "black",
@@ -41,9 +41,9 @@ const Nav = () => {
           style={{ marginLeft: 20, marginRight: 20 }}
           src="https://upload.wikimedia.org/wikipedia/commons/5/57/Techno_india_logo.jpg"
         />
-        <h3 style={{ color: "#fff", marginTop: 10 }}>Techno College Hooghly</h3>
+        <h3 style={{ color: "#000", marginTop: 10 }}>Techno College Hooghly</h3>
       </div>
-      <div style={{ width: "40%", paddingRight: 20 }}>
+      <div style={{ width: "45%", paddingRight: 20 }}>
         <ul style={navStyle} className="row1">
           <li className="nav-item">
             <button
@@ -74,14 +74,25 @@ const Nav = () => {
               <li style={{ fontWeight: "bold", color: "#000" }}>Admission</li>
             </button>
           </li>
-          <li style={{ fontWeight: "bold" }}>Contact</li>
-          {/* <li><Link to='/signup'>LogIn</Link></li> */}
-          <li
-            style={{ fontWeight: "bold" }}
-            onClick={() => history.push("/signup/student")}
-          >
-            Register
+          <li className="nav-item">
+            <button
+              type="button"
+              className="btn"
+              onClick={() => history.push("/contactus")}
+            >
+              <li style={{ fontWeight: "bold", color: "#000" }}>Contact Us</li>
+            </button>
           </li>
+          <li className="nav-item">
+            <button
+              type="button"
+              className="btn"
+              onClick={() => history.push("/signup/student")}
+            >
+              <li style={{ fontWeight: "bold", color: "#000" }}> Register</li>
+            </button>
+          </li>
+         
           {/* <li><Link to='/signup/student'>SignUp</Link></li> */}
         </ul>
       </div>
@@ -89,4 +100,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Nav1;

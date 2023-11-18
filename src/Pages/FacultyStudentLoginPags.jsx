@@ -11,8 +11,10 @@ import '../Style/footer.css'
 import { adminLogin } from '../redux/action/adminAction'
 import Nav from '../Components/Nav'
 
-
-
+import GoogleMapReact from 'google-map-react';
+import Nav1 from '../Components/Nav1'
+import { Marker } from 'google-maps-react'
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const FacultyStudentLoginPags = () => {
     const store = useSelector((state) => state)
@@ -33,6 +35,8 @@ const FacultyStudentLoginPags = () => {
 
     const history = useHistory()
   
+   
+
 
     useEffect(() => {
         if (store.faculty.isAuthenticated) {
@@ -58,9 +62,18 @@ const FacultyStudentLoginPags = () => {
     }, [store.errorHelper])
 
 
+    const defaultProps = {
+        center: {
+          lat: 22.777420,
+          lng: 88.330612
+        
+        },
+        zoom: 11
+      };
 
-
-
+useEffect(()=>{
+window.scrollTo(0,0)
+},[])
 
     const facultyFormHandler = (e) => {
         e.preventDefault()
@@ -131,17 +144,18 @@ const FacultyStudentLoginPags = () => {
 
     return (
         <div>
-            {/* <Nav/> */}
+
+            <Nav1/>
         <div className="container-fluid">
-            <div className="row" id="trail">
-                <div className="col-md-6">
+            <div className="row" id="traill" style={{paddingTop:70,paddingBottom:0}}>
+                <div className="col-md-4">
                 <div className="row m-5" >
-                <div className="col-md-8 m-auto border" style={{ backgroundColor: "white", borderRadius: "1.2rem", padding: "1rem 1rem 0rem 1rem" }}>
+                <div className="col-md-11 m-auto border" style={{ backgroundColor: "rgba(0,0,0,0.7)", borderRadius: "1.2rem", padding: "1rem 1rem 0rem 1rem" }}>
                     <div>
-                        <h3 className="text-center ">ADMIN</h3>
+                        <h3 className="text-center " style={{color:'#fff'}}>ADMIN</h3>
                         <form noValidate onSubmit={fromHandler}>
                             <div className="form-group" style={{display:'flex', flexDirection:'column',justifyContent:'space-between',margin:'10px',}}>
-                                <label htmlFor="facRegId">Registration Number</label>
+                                <label htmlFor="facRegId" style={{color:'#fff'}}>Registration Number</label>
                                 <input onChange={(e) => setRegistrationNumber(e.target.value)} type="text" value={registrationNumber} 
                                 className={classnames('form-control', {
                                     'is-invalid': errors.registrationNumber
@@ -152,7 +166,7 @@ const FacultyStudentLoginPags = () => {
                                 )}
                             </div>
                             <div className="form-group" style={{display:'flex', flexDirection:'column',justifyContent:'space-between',margin:'10px',}}>
-                                <label htmlFor="passwordFacId">Password</label>
+                                <label htmlFor="passwordFacId" style={{color:'#fff'}}>Password</label>
                                 <input onChange={(e) => setPassword(e.target.value)} value={password} 
                                   className={classnames('form-control', {
                                     'is-invalid': errors.registrationNumber
@@ -172,9 +186,9 @@ const FacultyStudentLoginPags = () => {
                                 </div>
                             </div>
 
-                            {!isLoading && <button type="submit" className="btn btn-info btn-block ">Log In</button>}
+                            {!isLoading && <button type="submit" className="btn btn-info btn-block mt-4 ">Log In</button>}
                          
-                            {<button  className="btn btn-info btn-block" onClick={()=>history.push('/signup/admin')}>Sign Up</button>}
+                            {<button  className="btn btn-info btn-block" onClick={()=>history.push('/signup/admin')}>Register</button>}
 
                         </form>
                         <p className="text-center mt-2 ">
@@ -184,14 +198,14 @@ const FacultyStudentLoginPags = () => {
                 </div>
             </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-4">
                     <div className="row m-5">
-                        <div className="col-md-8 m-auto border" style={{ backgroundColor: "white", borderRadius: "1.2rem", padding: "1rem 1rem 0rem 1rem" }}>
+                        <div className="col-md-11 m-auto border" style={{ backgroundColor: "rgba(0,0,0,0.7)", borderRadius: "1.2rem", padding: "1rem 1rem 0rem 1rem" }}>
                             <div>
-                                <h3 className="text-center ">FACULTY</h3>
+                                <h3 className="text-center " style={{color:'#fff'}}>FACULTY</h3>
                                 <form noValidate onSubmit={facultyFormHandler}>
                                     <div className="form-group">
-                                        <label htmlFor="facRegId">Registration Number</label>
+                                        <label htmlFor="facRegId" style={{color:'#fff'}}>Registration Number</label>
                                         <input onChange={(e) => setFacultyRegNum(e.target.value)} type="text" value={facultyRegNum} className={classnames('form-control', {
                                             'is-invalid': errors.registrationNumber
                                         })}
@@ -201,7 +215,7 @@ const FacultyStudentLoginPags = () => {
                                         )}
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="passwordFacId">Password</label>
+                                        <label htmlFor="passwordFacId" style={{color:'#fff'}}>Password</label>
                                         <input onChange={(e) => setFacultyPassword(e.target.value)} value={facultyPassword} className={classnames("form-control", {
                                             'is-invalid': errors.password
                                         })}
@@ -221,19 +235,22 @@ const FacultyStudentLoginPags = () => {
                                     </div>
 
                                     {!isFacultyLoading && <button type="submit" className="btn btn-info btn-block">Login</button>}
-                                    {<button  className="btn btn-info btn-block" onClick={()=>history.push('/signup/faculty')}>Sign Up</button>}
+                                    {<button  className="btn btn-info btn-block" onClick={()=>history.push('/signup/faculty')}>Register</button>}
                                 </form>
-                                <p className="text-center mt-2 "><Link className="text-center" to="/forgotPassword/faculty">Forgot Password</Link></p>
+                                <p style={{color:'turquoise'}} className="text-center mt-2 "><Link className="text-center" to="/forgotPassword/faculty"><p style={{color:'turquoise'}}>Forgot Password</p></Link></p>
                             </div>
                         </div>
                     </div>
-                    <div className="row m-5">
-                        <div className="col-md-8 m-auto border" style={{ backgroundColor: "white", borderRadius: "1.2rem", padding: "1rem 1rem 0rem 1rem" }}>
+                   
+                </div>
+                <div className="col-md-4">
+                <div className="row m-5">
+                        <div className="col-md-11 m-auto border" style={{ backgroundColor: "rgba(0,0,0,0.7)", borderRadius: "1.2rem", padding: "1rem 1rem 0rem 1rem" }}>
                             <div>
-                                <h3 className="text-center">STUDENT</h3>
+                                <h3 className="text-center" style={{color:'#fff'}}>STUDENT</h3>
                                 <form noValidate onSubmit={studentFormHandler}>
                                     <div className="form-group">
-                                        <label htmlFor="studentId">Registration Number</label>
+                                        <label htmlFor="studentId" style={{color:'#fff'}}>Registration Number</label>
                                         <input onChange={(e) => setStudentRegNum(e.target.value)} type="text" value={studentRegNum} className={classnames('form-control', {
                                             'is-invalid': errorsHelper.registrationNumber
                                         })}
@@ -243,7 +260,7 @@ const FacultyStudentLoginPags = () => {
                                         )}
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="passwordId">Password</label>
+                                        <label htmlFor="passwordId" style={{color:'#fff'}}>Password</label>
                                         <input onChange={(e) => setStudentPassword(e.target.value)} value={studentPassword} className={classnames("form-control", {
                                             'is-invalid': errorsHelper.password
                                         })}
@@ -262,13 +279,92 @@ const FacultyStudentLoginPags = () => {
                                         </div>
                                     </div>
                                     {!isStudentLoading && <button type="submit" className="btn btn-info btn-block ">Login</button>}
-                                    {<button  className="btn btn-info btn-block" onClick={()=>history.push('/signup/student')}>Sign Up</button>}
+                                    {<button  className="btn btn-info btn-block" onClick={()=>history.push('/signup/student')}>Register</button>}
                                 </form>
-                                <p className="text-center"><Link className="text-center" to="/forgotPassword/student">Forgot Password</Link></p>
+                                <p style={{color:'turquoise'}} className="text-center mt-2"><Link className="text-center" to="/forgotPassword/student"><p style={{color:'turquoise'}}>Forgot Password</p></Link></p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <footer className="footer-distributed" style={{marginTop:100}}>
+
+<div className="footer-left">
+
+    <h3>Techno College<span> Hooghly</span></h3>
+
+    <p className="footer-links">
+        <a href="#" className="link-1">Home</a>
+        
+        <a href="#">Blog</a>
+    
+        <a href="#">Pricing</a>
+    
+        <a ><Link className="text-center" to="/about">About</Link></a>
+        
+        <a href="#">Faq</a>
+        
+        <a href="#">Contact</a>
+    </p>
+  
+    <p style={{color:'teal'}} className="footer">Techno College © 2002</p>
+    <div>
+        <i className="fa fa-envelope"></i>
+        <p><a href="mailto:info@technoindiahooghly.org"><span style={{color:'turquoise'}}>info@technoindiahooghly.org</span></a></p>
+    </div>
+  
+  
+</div>
+
+<div className="footer-center">
+
+    <div>
+        <i className="fa fa-map-marker"></i>
+        <p><span>Dharampur G. T. Road, </span> Chinsurah, West Bengal 712101</p>
+    </div>
+
+    <div>
+        <i className="fa fa-phone"></i>
+        <p>+91 94750 52378</p>
+    </div>
+    <div style={{ height: '25vh', width: '65%' ,alignItems:'center',display:'flex',alignSelf:'center'}}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: "AIzaSyBoSJubhhx5hQw7sBf6GDusPGNBFUu1ncE" }}
+        defaultCenter={defaultProps.center}
+        defaultZoom={defaultProps.zoom}
+        yesIWantToUseGoogleMapApiInternals
+      >
+        <AnyReactComponent
+          lat={22.891805924016044}
+          lng={88.38167615109577}
+          text="My Marker"
+        />
+        <Marker lat={22.891805924016044}
+          lng={88.38167615109577}/>
+      </GoogleMapReact>
+    </div>
+  
+</div>
+
+<div className="footer-right">
+
+    <p className="footer-company-about">
+        <span>About the college</span>
+        Techno India (Hooghly Campus) has been established in the year 2002 at Chinsurah which is a renowned district town of Hooghly. It is affiliated to Maulana Abul Kalam Azad University of Technology formerly Known as W.B.U.T, Government of West Bengal to run BBA(H) and BCA(H), M.Sc. Computer Science and A.I.C.T.E. approved MCA (at Techno College Hooghly).
+    </p>
+
+    <div className="footer-icons">
+
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        
+        <a href="#"><i class="bi bi-twitter"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="#"><i class="bi bi-github"></i></a>
+        <a href='#'><i class="bi bi-instagram"></i></a>
+    </div>
+
+</div>
+
+</footer>
             </div>
         </div>
        
@@ -366,67 +462,7 @@ const FacultyStudentLoginPags = () => {
   </footer>
 
 </div> */}
-<footer className="footer-distributed">
 
-<div className="footer-left">
-
-    <h3>Company<span>logo</span></h3>
-
-    <p className="footer-links">
-        <a href="#" className="link-1">Home</a>
-        
-        <a href="#">Blog</a>
-    
-        <a href="#">Pricing</a>
-    
-        <a href="#">About</a>
-        
-        <a href="#">Faq</a>
-        
-        <a href="#">Contact</a>
-    </p>
-
-    <p className="footer-company-name">Company Name © 2015</p>
-</div>
-
-<div className="footer-center">
-
-    <div>
-        <i className="fa fa-map-marker"></i>
-        <p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
-    </div>
-
-    <div>
-        <i className="fa fa-phone"></i>
-        <p>+1.555.555.5555</p>
-    </div>
-
-    <div>
-        <i className="fa fa-envelope"></i>
-        <p><a href="mailto:support@company.com">support@company.com</a></p>
-    </div>
-
-</div>
-
-<div className="footer-right">
-
-    <p className="footer-company-about">
-        <span>About the company</span>
-        Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
-    </p>
-
-    <div className="footer-icons">
-
-        <a href="#"><i className="fa fa-facebook"></i></a>
-        <a href="#"><i className="fa fa-twitter"></i></a>
-        <a href="#"><i className="fa fa-linkedin"></i></a>
-        <a href="#"><i className="fa fa-github"></i></a>
-
-    </div>
-
-</div>
-
-</footer>
         </div>
     )
 }

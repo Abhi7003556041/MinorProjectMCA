@@ -50,7 +50,7 @@ const StudentUpdateProfile = () => {
         history.push('/')
     }
         return (
-            <div>
+            <div >
                 {store.student.isAuthenticated ? <>
                     <HomeHelper />
                     <div className="container mt-5">

@@ -50,6 +50,16 @@ const AdminAddFaculty = () => {
     useEffect(() => {
         if (store.error || store.admin.adminAddFacultyFlag) {
             setIsLoading(false)
+            setName('')
+            setEmail('')
+            setDepartment('')
+            setFacultyMobileNumber('')
+            setDesignation('')
+          
+            setDob('')
+            setGender('')
+          
+            setAadharCard('')
         }
         else {
             setIsLoading(true)
@@ -57,16 +67,16 @@ const AdminAddFaculty = () => {
     },[store.error,store.admin.adminAddFacultyFlag])
     return (
        
-        <div>
-            {store.admin.isAuthenticated ? (<><AdminHomeHelper/>
-                <div className="container mt-5">
-                    <div className="row ">
+        <div className="container-fluid body" id='trail' >
+            {store.admin.isAuthenticated ? (<div className="container-fluid body " id='trail'><AdminHomeHelper/>
+                <div className="container mt-5 center" >
+                    <div className="row " >
                         <div className="col">
                             <form noValidate onSubmit={formHandler}>
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <div className="form-group">
-                                            <label htmlFor="nameId">Faculty Name</label>
+                                        <div className="form-group" >
+                                            <label style={{fontWeight:'bold',color:'#000'}}htmlFor="nameId">Faculty Name</label>
                                             <input onChange={(e) => setName(e.target.value)} type="text" className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.name
@@ -74,7 +84,7 @@ const AdminAddFaculty = () => {
                                             {error.name && (<div className="invalid-feedback">{error.name}</div>)}
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="emailId">Email</label>
+                                            <label style={{fontWeight:'bold',color:'#000'}} htmlFor="emailId">Email</label>
                                             <input onChange={(e) => setEmail(e.target.value)} type="email" className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.email
@@ -82,7 +92,7 @@ const AdminAddFaculty = () => {
                                             {error.email && (<div className="invalid-feedback">{error.email}</div>)}
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="designationId">Designation</label>
+                                            <label style={{fontWeight:'bold',color:'#000'}} htmlFor="designationId">Designation</label>
                                             <select onChange={(e) => setDesignation(e.target.value)} className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.designation
@@ -94,7 +104,7 @@ const AdminAddFaculty = () => {
                                             {error.designation && (<div className="invalid-feedback">{error.designation}</div>)}
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="departmentId">Department</label>
+                                            <label style={{fontWeight:'bold',color:'#000'}} htmlFor="departmentId">Department</label>
                                             <select onChange={(e) => setDepartment(e.target.value)} className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.department
@@ -112,7 +122,7 @@ const AdminAddFaculty = () => {
                                     </div>
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <label htmlFor="dobId">DOB</label>
+                                            <label style={{fontWeight:'bold',color:'#000'}} htmlFor="dobId">DOB</label>
                                             <input onChange={(e) => setDob(e.target.value)} type="date" className={classnames("form-control",
                                                 {
                                                     'is-invalid': error.dob
@@ -120,7 +130,7 @@ const AdminAddFaculty = () => {
                                             {error.dob && (<div className="invalid-feedback">{error.dob}</div>)}
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="genderId">Gender</label>
+                                            <label style={{fontWeight:'bold',color:'#000'}} htmlFor="genderId">Gender</label>
                                             <select onChange={(e) => setGender(e.target.value)} className="form-control" id="genderId">
                                                 <option>Select</option>
                                                 <option value="Male">Male</option>
@@ -129,11 +139,11 @@ const AdminAddFaculty = () => {
                                             </select>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="numberId">Contact Number</label>
+                                            <label style={{fontWeight:'bold',color:'#000'}} htmlFor="numberId">Contact Number</label>
                                             <input onChange={(e) => setFacultyMobileNumber(e.target.value)} type="number" className="form-control" id="numberId" />
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="aadharId">Aadhar Card Number</label>
+                                            <label style={{fontWeight:'bold',color:'#000'}} htmlFor="aadharId">Aadhar Card Number</label>
                                             <input onChange={(e) => setAadharCard(e.target.value)} type="number" className="form-control" id="aadharId" />
                                         </div>
                                     </div>
@@ -147,11 +157,11 @@ const AdminAddFaculty = () => {
                                         }
                                     </div>
                                 </div>
-                                {!isLoading && <button type="submit" className="btn btn-info">Add Faculty</button>}
+                                {!isLoading && <button style={{marginBottom:'30%',}} type="submit" className="btn btn-info">Add Faculty</button>}
                             </form>
                         </div>
                     </div>
-                </div></>):(history.push('/'))}
+                </div></div>):(history.push('/'))}
             
         </div>
 

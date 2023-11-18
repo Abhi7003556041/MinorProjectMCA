@@ -27,12 +27,13 @@ const FacultyUpdatePassword = () => {
         e.preventDefault()
         setIsLoading(true)
         dispatch(facultyUpdatePassword({ registrationNumber: store.faculty.faculty.faculty.registrationNumber, oldPassword, newPassword, confirmNewPassword }))
+        history.push('/')
     }
     useEffect(() => {
         
     }, [store.faculty])
     return (
-        <div>
+        <div id='trail' style={{height:'100vh'}}>
             {store.faculty.isAuthenticated ? <>
                 <FacultyHomeHelper />
                 <div className="container m-5">

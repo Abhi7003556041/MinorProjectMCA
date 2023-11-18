@@ -60,23 +60,25 @@ const UploadMarksheet = () => {
     const formHandler = async(e) => {
         e.preventDefault()
      
-        // const Data = {
-        //     examId:ExamId,
-        //     studentId:store.student.student.student.registrationNumber,
-        //     department:store.student.student.student.department,
-        //     subjectCode:subjectCode,
-        //     marksheet:avatar
-        // }
-        const formData = new FormData()
-        formData.append("examId", ExamId)
-        formData.append("studentId", store.student.student.student.registrationNumber)
-        formData.append("department",  store.student.student.student.department)
-        formData.append("subjectCode", subjectCode)
-        formData.append("marksheet", avatar)
+        const Data = {
+            examId:ExamId,
+            studentId:store.student.student.student.registrationNumber,
+            department:store.student.student.student.department,
+            subjectCode:subjectCode,
+            // marksheet:avatar
+        }
+        // const formData = new FormData()
+        // formData.append("examId", ExamId)
+        // formData.append("studentId", store.student.student.student.registrationNumber)
+        // formData.append("department",  store.student.student.student.department)
+        // formData.append("subjectCode", subjectCode)
+        // formData.append("marksheet", avatar)
+       
         await axios({
             method: 'Post',
             url: url + "/api/student/UploadMarksheet",
-            data:formData
+            data:Data,
+            headers:{'Content-Type':'application/json'},
         }).then((res)=>{
             console.log('allllexammm',res.data)
             alert("MarkSheet Uploaded Successfully")

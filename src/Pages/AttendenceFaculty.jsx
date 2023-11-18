@@ -75,7 +75,7 @@ const AttendenceFaculty = () => {
     },[store.faculty.fetchedStudentsHelper])
     
     return (
-        <div>
+        <div id='trail' style={{height:'100vh'}}>
             {store.faculty.isAuthenticated ? <>
                 <FacultyHomeHelper />
                 {store.faculty.fetchedStudentsHelper && <div className="row justify-content-center mt-4 ">

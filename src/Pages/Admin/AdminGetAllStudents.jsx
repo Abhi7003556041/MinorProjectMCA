@@ -32,7 +32,7 @@ const AdminGetAllFaculty = () => {
 
     }, [store.admin.allStudent])
     return (
-        <div>
+        <div id='trail' style={{height:'100vh'}}>
             {store.admin.isAuthenticated ? <>
                 <AdminHomeHelper />
                 <div className="container">

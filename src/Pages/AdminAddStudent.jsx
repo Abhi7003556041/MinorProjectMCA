@@ -56,10 +56,21 @@ const AdminAddStudent = () => {
     useEffect(() => {
         if (store.error || store.admin.adminAddStudentFlag) {
             setIsLoading(false)
+            setName('')
+            setEmail('')
+            setDepartment('')
+            setYear('')
+            setSection('')
+            setDob('')
+            setGender('')
+            setContactNumber('')
+            setFatherName('')
+            setFatherContactNumber('')
+            setAadharCard('')
         }
     }, [store.error, store.admin.adminAddStudentFlag])
     return (
-        <div >
+        <div className="container-fluid body" id='trail'>
             {store.admin.isAuthenticated ? <><AdminHomeHelper />
                 <div className="container mt-5">
                     <div className="row ">
@@ -169,7 +180,7 @@ const AdminAddStudent = () => {
                                         }
                                     </div>
                                 </div>
-                                {!isLoading && <button type="submit" className="btn btn-info  ">Add Student</button>}
+                                {!isLoading && <button style={{marginBottom:'10%',}} type="submit" className="btn btn-info  ">Add Student</button>}
                             </form>
                         </div>
                     </div>

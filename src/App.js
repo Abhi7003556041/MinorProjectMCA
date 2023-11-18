@@ -53,6 +53,10 @@ import SignUpPage from './Pages/SignUpPage';
 import StudentFees from './Pages/StudentFees';
 import AdminAddExam from './Pages/AddExam';
 import UploadMarksheet from './Pages/UploadMarksheet';
+import AboutPage from './Pages/About';
+import Academics from './Pages/Academics';
+import AdmissionPage from './Pages/Admissionpage';
+import ContactUs from './Pages/ContactUs';
  
 if (window.localStorage.facultyJwtToken) {
   setAuthToken(localStorage.facultyJwtToken);
@@ -101,6 +105,11 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={FacultyStudentLoginPags} />
+          <Route exact path='/about' component={AboutPage} />
+          <Route exact path='/academics' component={Academics} />
+          <Route exact path='/admission' component={AdmissionPage} />
+          <Route exact path='/contactus' component={ContactUs} />
+
           <Route exact path='/signup/:id' component={SignUpPage} />
 
           <Route exact path='/adminLogin' component={LoginPage} />

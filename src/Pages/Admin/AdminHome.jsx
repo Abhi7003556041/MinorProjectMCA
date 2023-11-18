@@ -32,28 +32,28 @@ const AdminHome = () => {
                                     <table className="table border">
                                         <tbody>
                                             <tr>
-                                                <td>Name</td>
-                                                <td>{store.admin.admin.name}</td>
+                                                <td  style={{color:'#000',fontWeight:'bold'}}>Name</td>
+                                                <td  style={{color:'#000',fontWeight:'bold'}}>{store.admin.admin.name}</td>
                                             </tr>
                                             <tr>
-                                                <td>Email</td>
-                                                <td>{store.admin.admin.email}</td>
+                                                <td  style={{color:'#000',fontWeight:'bold'}}>Email</td>
+                                                <td  style={{color:'#000',fontWeight:'bold'}}>{store.admin.admin.email}</td>
                                             </tr>
                                             <tr>
-                                                <td>Registration Number</td>
-                                                <td>{store.admin.admin.registrationNumber}</td>
+                                                <td  style={{color:'#000',fontWeight:'bold'}}>Registration Number</td>
+                                                <td  style={{color:'#000',fontWeight:'bold'}}>{store.admin.admin.registrationNumber}</td>
                                             </tr>
                                             <tr>
-                                                <td>Joining Year</td>
-                                                <td>{store.admin.admin.joiningYear}</td>
+                                                <td  style={{color:'#000',fontWeight:'bold'}}>Joining Year</td>
+                                                <td  style={{color:'#000',fontWeight:'bold'}}>{store.admin.admin.joiningYear}</td>
                                             </tr>
                                             <tr>
-                                                <td>Department</td>
-                                                <td>{store.admin.admin.department}</td>
+                                                <td  style={{color:'#000',fontWeight:'bold'}}> Department</td>
+                                                <td  style={{color:'#000',fontWeight:'bold'}}>{store.admin.admin.department}</td>
                                             </tr>
                                             <tr>
-                                                <td>Contact Number</td>
-                                                <td>{store.admin.admin.contactNumber ?
+                                                <td style={{color:'#000',fontWeight:'bold'}}>Contact Number</td>
+                                                <td  style={{color:'#000',fontWeight:'bold'}}>{store.admin.admin.contactNumber ?
                                                     store.admin.admin.contactNumber : "NA"}</td>
                                             </tr>
                                         </tbody>

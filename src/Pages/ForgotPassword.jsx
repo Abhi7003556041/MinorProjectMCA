@@ -31,6 +31,10 @@ const ForgotPassword = (props) => {
     useEffect(() => {
         if (store.student.flag) {
             setHelper(true)
+           
+        }
+        else{
+          
         }
     },[store.student.flag])
 
@@ -48,10 +52,12 @@ const ForgotPassword = (props) => {
         e.preventDefault()
         if (user === "student") {
             dispatch(submitOTPStudent({ email, otp, newPassword, confirmNewPassword },history))
+            history.push('/')
         }
         else if (user === "faculty")
         {
             dispatch(submitOTPFaculty({ email, otp, newPassword, confirmNewPassword }, history))
+            history.push('/')
             }
     }
 
@@ -59,17 +65,18 @@ const ForgotPassword = (props) => {
 
 
     return (
-        <div className="container mt-5">
+        <div style={{height:'100vh',width:'100%'}} id='trail'>
+        <div className="container pt-5" >
             <div className="row">
                 <div className="col-md-4 m-auto">
                     {!helper ? <>
                         <form noValidate onSubmit={sendOTPHandler}>
                             <div className="form-group">
-                                <label htmlFor="exampleInputEmail11">Email</label>
+                                <label htmlFor="exampleInputEmail11" style={{color:'#000',fontWeight:'bold',fontSize:15}}>Email</label>
                                 <input onChange={(e) => setEmail(e.target.value)} value={email} type="email" className={classnames('form-control', {
                                     'is-invalid': errors.email
                                 })} id="exampleInputEmail11" placeholder="Provide our registered email" aria-describedby="emailHelp" />
-                                <small id="emailHelp" className="form-text text-muted">OTP will be only valid for 5 minute.</small>
+                                <small id="emailHelp"  style={{color:'#000'}}>OTP will be only valid for 5 minute.</small>
                                 {errors.email && (
                                     <div className="invalid-feedback">{errors.email}</div>
                                 )}
@@ -110,6 +117,7 @@ const ForgotPassword = (props) => {
                         </>}
                 </div>
             </div>
+        </div>
         </div>
     )
 }

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { adminGetAllSubject } from '../../redux/action/adminAction'
 import AdminHomeHelper from '../../Components/AdminHomeHelper'
 import classnames from 'classnames'
+import axios from 'axios'
 
 const AdminGetAllSubjects = () => {
     const store = useSelector((store) => store)
@@ -13,12 +14,35 @@ const AdminGetAllSubjects = () => {
     const [error, setError] = useState({})
     const [isLoading, setIsLoading] = useState(false)
     const history = useHistory()
+    const url = "http://localhost:5000"
 
 
-    const formHandler = (e) => {
+    const adminGetAllSubjectHelper = (data) => {
+        return {
+            type: "GET_ALL_SUBJECT",
+            payload: data
+        }
+    }
+    const adminAddSubjectFlag = (data) => {
+        return {
+            type: "ADMIN_ADD_SUBJECT_FLAG",
+            payload: data
+        }
+    }
+    const formHandler = async(e) => {
         e.preventDefault()
         setIsLoading(true)
-        dispatch(adminGetAllSubject({ department, year }))
+        const { data } = await axios({
+            method: 'Post',
+            url: url + "/api/admin/getAllSubject",
+            data: { department, year }
+        })
+        if(data){
+            setIsLoading(false)
+            dispatch(adminGetAllSubjectHelper(data.result))
+            dispatch(adminAddSubjectFlag(true))
+        }
+        // dispatch(adminGetAllSubject({ department, year }))
 
     }
     useEffect(() => {
@@ -28,7 +52,7 @@ const AdminGetAllSubjects = () => {
 
     }, [store.admin.allSubject.length])
     return (
-        <div>
+        <div id='trail' style={{height:'100vh'}}>
             <div>
                 {store.admin.isAuthenticated ? <>
                     <AdminHomeHelper />

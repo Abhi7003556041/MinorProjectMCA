@@ -99,10 +99,10 @@ const Chat = (props) => {
    
 
     return (
-        <div>
+        <div id='trail' style={{height:'110vh'}}>
             {store.student.isAuthenticated ? <>
                 <HomeHelper />
-                <div className="container" style={{alignItems:'center',marginTop:'5px'}}>
+                <div  className="container" style={{alignItems:'center',marginTop:'15px',width:'350vh'}}>
                     <div className="row" >
                        
                         <div className="col-md-10 " >

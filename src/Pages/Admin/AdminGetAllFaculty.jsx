@@ -18,6 +18,7 @@ const AdminGetAllFaculty = () => {
         e.preventDefault()
         setIsLoading(true)
         dispatch(adminGetAllFaculty({ department }))
+       
     }
 
     useEffect(() => {
@@ -25,12 +26,12 @@ const AdminGetAllFaculty = () => {
             setIsLoading(false)
         }
         else setIsLoading(false)
-        
+        window.scrollTo(0,0)
     }, [store.admin.allFaculty])
 
     
     return (
-        <div>
+        <div id='trail' style={{height:'100vh'}}>
             {store.admin.isAuthenticated ? <>
                 <AdminHomeHelper />
                 <div className="container">

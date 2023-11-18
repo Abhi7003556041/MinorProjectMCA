@@ -57,7 +57,7 @@ const AdminAddAdmin = () => {
 
     return (
 
-        <div>
+        <div className="container-fluid body" id='trail'>
             {store.admin.isAuthenticated ? (<><AdminHomeHelper />
                 <div className="container mt-5">
                     <div className="row ">
@@ -127,7 +127,7 @@ const AdminAddAdmin = () => {
                                             }
                                         </div>
                                     </div>
-                                    {!isLoading && <button type="submit" className="btn btn-info  ">Add Admin</button>}
+                                    {!isLoading && <button style={{marginBottom:'30%'}} type="submit" className="btn btn-info  ">Add Admin</button>}
                             </form>
                         </div>
                     </div>

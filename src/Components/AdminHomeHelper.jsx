@@ -23,7 +23,7 @@ const Home = () => {
     return (
         <div className="container-fluid">
           
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
                 {/* <h4 className="navbar-brand mt-1" href="">ASA</h4> */}
                 <img
         alt='logo'
@@ -37,46 +37,54 @@ const Home = () => {
             marginLeft: "10px"
 
         }}
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnQyqoHMTLURYOwSwJtd4o2wD5yMY5OrdiTg&usqp=CAU"
+        src="https://upload.wikimedia.org/wikipedia/commons/5/57/Techno_india_logo.jpg"
       />
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item active">
-                            <button type="button" className="btn"><Link to="/admin"><li>{name.toUpperCase()}</li></Link></button>
+                        <li style={{fontWeight:'normal',color:'#fff'}} className="nav-item active">
+                            <button type="button" className="btn" onClick={()=>navigate.push('/admin')}>
+                                <li style={{fontWeight:'bold',color:'#fff'}}>{name.toUpperCase()}</li></button>
                         </li>
                         <li className="nav-item">
-                            <button type="button" className="btn"><Link to="/admin/addFaculty"><li>ADD FACULTY</li></Link></button>
+                            <button type="button" className="btn" onClick={()=>navigate.push('/admin/addFaculty')}>
+                                <li style={{fontWeight:'bold',color:'#fff'}}>ADD FACULTY</li></button>
                         </li>
                         <li className="nav-item">
-                            <button type="button" className="btn"><Link to="/admin/addStudent"><li>ADD STUDENT</li></Link></button>
+                            <button type="button" className="btn" onClick={()=>navigate.push('/admin/addStudent')}>
+                               <li style={{fontWeight:'bold',color:'#fff'}}>ADD STUDENT</li></button>
                         </li>
                         <li className="nav-item">
-                            <button type="button" className="btn"><Link to="/admin/addSubject"><li>ADD SUBJECT</li></Link></button>
+                            <button type="button" className="btn" onClick={()=>navigate.push('/admin/addSubject')}>
+                              <li style={{fontWeight:'bold',color:'#fff'}}>ADD SUBJECT</li></button>
                         </li>
                         {/* <li className="nav-item">
                             <button type="button" className="btn"><Link to="/admin/allExam"><li>ADD EXAM</li></Link></button>
                         </li> */}
                         <li className="nav-item">
-                            <button type="button" className="btn"><Link to="/admin/addAdmin"><li>ADD ADMIN</li></Link></button>
+                            <button type="button" className="btn" onClick={()=>navigate.push('/admin/addAdmin')}>
+                                <li style={{fontWeight:'bold',color:'#fff'}}>ADD ADMIN</li></button>
                         </li>
                         <li className="nav-item">
-                            <button type="button" className="btn"><Link to="/admin/allFaculties"><li>OUR FACULTIES</li></Link></button>
+                            <button type="button" className="btn" onClick={()=>navigate.push('/admin/allFaculties')}>
+                                <li style={{fontWeight:'bold',color:'#fff'}}>OUR FACULTIES</li></button>
                         </li>
                         <li className="nav-item">
-                            <button type="button" className="btn"><Link to="/admin/allStudents"><li>OUR STUDENTS</li></Link></button>
+                            <button type="button" className="btn" onClick={()=>navigate.push('/admin/allStudents')}>
+                                <li style={{fontWeight:'bold',color:'#fff'}}>OUR STUDENTS</li></button>
                         </li>
                         <li className="nav-item">
-                            <button type="button" className="btn"><Link to="/admin/allSubject"><li>SUBJECTS</li></Link></button>
+                            <button type="button" className="btn" onClick={()=>navigate.push('/admin/allSubject')}>
+                                <li style={{fontWeight:'bold',color:'#fff'}}>SUBJECTS</li></button>
                         </li>
 
                     </ul>
                 </div>
                 <div>
 
-                    <button style={{ listStyle: "None" }} onClick={logoutHandler} type="button" className="btn"><li>LOGOUT</li></button>
+                    <button style={{ listStyle: "None" }} onClick={logoutHandler} type="button" className="btn"><li style={{fontWeight:'bold',color:'#fff'}}>LOGOUT</li></button>
 
                 </div>
             </nav>

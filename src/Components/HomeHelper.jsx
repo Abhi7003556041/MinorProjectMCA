@@ -26,7 +26,7 @@ const Home = () => {
         <div className="container-fluid">
              <div className="row">
                 <div className="col">
-                    <nav className="navbar navbar-expand-lg navbar-light  bg-light">
+                    <nav className="navbar navbar-expand-lg navbar-light  bg-transparent">
                     <img
         alt='logo'
         className='logo-image'
@@ -39,7 +39,7 @@ const Home = () => {
             marginLeft: "10px"
 
         }}
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnQyqoHMTLURYOwSwJtd4o2wD5yMY5OrdiTg&usqp=CAU"
+        src="https://upload.wikimedia.org/wikipedia/commons/5/57/Techno_india_logo.jpg"
       />
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
@@ -47,13 +47,13 @@ const Home = () => {
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav">
                                 <li className="nav-item active">
-                                    <button type="button" className="btn"><Link to="/home"><li>{name.toUpperCase()}</li></Link></button>
+                                    <button type="button" className="btn" onClick={()=>history.push('/home')}><li style={{fontWeight:'bold',color:'#fff'}}>{name.toUpperCase()}</li></button>
                                 </li>
                                 <li className="nav-item">
-                                    <button type="button" className="btn"><Link to="/student/updateProfile"><li>UPDATE PROFILE</li></Link></button>
+                                    <button type="button" className="btn" onClick={()=>history.push('/student/updateProfile')}><li style={{fontWeight:'bold',color:'#fff'}}>UPDATE PROFILE</li></button>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" style={{fontWeight:'bold',color:'#fff'}} role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         ACADEMIC </a>
                                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <Link className="dropdown-item" to="/student/testPerformance">Test Performance</Link>
@@ -62,26 +62,26 @@ const Home = () => {
                                     </div>
                                 </li>
                                 <li className="nav-item">
-                                    <button type="button" className="btn"><Link to="/studentDetails"><li>STUDENTS</li></Link></button>
+                                    <button type="button" className="btn" onClick={()=>history.push('/studentDetails')}><li style={{fontWeight:'bold',color:'#fff'}}>STUDENTS</li></button>
                                 </li>
                                 <li className="nav-item">
-                                    <button type="button" className="btn"><Link to="/student/examFees"><li>EXAM FEES</li></Link></button>
+                                    <button type="button" className="btn" onClick={()=>history.push('/student/examFees')}><li style={{fontWeight:'bold',color:'#fff'}}>EXAM FEES</li></button>
                                 </li>
                                 <li className="nav-item">
-                                    <button type="button" className="btn"><Link to="/student/uploadMarksheet"><li>EXAMSHEET</li></Link></button>
+                                    <button type="button" className="btn " onClick={()=>history.push('/student/uploadMarksheet')}><li style={{fontWeight:'bold',color:'#fff'}}>EXAMSHEET</li></button>
                                 </li>
                                 <li className="nav-item">
-                                    <button type="button" className="btn"><Link to="/studentDetails"><li>NEW CONVERSATION ({store.student.newerChats.length})</li></Link></button>
+                                    <button type="button" className="btn" onClick={()=>history.push('/studentDetails')}><li style={{fontWeight:'bold',color:'#fff'}}>NEW CONVERSATION ({store.student.newerChats.length})</li></button>
                                 </li>
                                 <li className="nav-item">
-                                    <button type="button" className="btn"><Link to="/student/updatePassword"><li>UPDATE PASSWORD</li></Link></button>
+                                    <button type="button" className="btn" onClick={()=>history.push('/student/updatePassword')}><li style={{fontWeight:'bold',color:'#fff'}}>UPDATE PASSWORD</li></button>
                                 </li>
                                
                             </ul>
                            
                         </div>
                         <div>
-                            <button style={{listStyle:"none"}} onClick={logoutHandler} type="button" className="btn"><li>LOGOUT</li></button>
+                            <button style={{fontWeight:'bold',color:'#fff',listStyle:'none'}} onClick={logoutHandler} type="button" className="btn"><li>LOGOUT</li></button>
                         </div>
                     </nav>
                 </div>
