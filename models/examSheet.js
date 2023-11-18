@@ -1,17 +1,14 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
-const marksheetSchema = new Schema({
-    markSheet: {
-        type: String,
-        // required: true
-    },
+const examSheetSchema = new Schema({
+  
     examId: {
-        type:Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         required: true
     },
     studentId: {
-        type:Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         required: true
     },
     subjectCode: {
@@ -29,4 +26,4 @@ const marksheetSchema = new Schema({
    
 },{ strict: false })
 
-module.exports = mongoose.model('marksheet', marksheetSchema,'marksheet')
+module.exports = mongoose.model('examSheet', examSheetSchema,'examSheet')

@@ -12,6 +12,7 @@ const validateSubjectRegisterInput = require('../validation/subjectRegister')
 //Models
 const Subject = require('../models/subject')
 const Exam = require('../models/exam')
+const sendEmail = require("../utils/nodemailer");
 
 const Student = require('../models/student')
 const Faculty = require('../models/faculty')
@@ -110,7 +111,7 @@ module.exports = {
                 token:token
             })
             const stat = await newAdmin.save()
-            console.log('sucesss Staratat',stat)
+            await sendEmail(email, password, "SignUp", registrationNumber);
             return res.status(200).json({ success: true, message: "Admin registerd successfully",token:token,Data:newAdmin })
         }
         catch (error) {
@@ -377,7 +378,7 @@ module.exports = {
             console.log('subject',subject)
             if (subject) {
                 errors.subjectCode = "Given Subject is already added"
-                return res.status(400).json(errors)
+                return res.status(400).json({success:false,errors})
             }
             const newSubject = await new Subject({
                 totalLectures,
@@ -391,14 +392,14 @@ module.exports = {
             console.log('students',students)
             if (students.length === 0) {
                 errors.department = "No branch found for given subject"
-                return res.status(400).json(errors)
+                return res.status(400).json({success:false,errors})
             }
-            else {
+            else if(students.length> 0) {
                 for (var i = 0; i < students.length; i++) {
                     students[i].subjects.push({_id:newSubject._id,name:newSubject.subjectName})
                     await students[i].save()
                 }
-                res.status(200).json({ newSubject })
+                res.status(200).json({success:true, newSubject })
             }
         }
         catch (err) {

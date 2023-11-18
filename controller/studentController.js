@@ -4,7 +4,7 @@ const keys = require("../config/key");
 const sendEmail = require("../utils/nodemailer");
 const Student = require("../models/student");
 const Fee = require("../models/fees");
-const Marksheet = require("../models/Marksheet");
+const Examsheet = require("../models/examSheet");
 
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
@@ -521,18 +521,23 @@ module.exports = {
   UploadMarksheet: async (req, res) => {
     try {
       console.log('req.body',req.body)
-      const prevFee = await Marksheet.find({examId:req.body.examId,studentId: req.body.studentId})
-      console.log('ghg',req.file.filename)
+      const {examId,studentId,subjectCode,department} = req.body
+      const prevFee = await Examsheet.find({examId:req.body.examId,studentId: req.body.studentId})
+      console.log('ghg',prevFee)
       if (prevFee.length>0) {
         return res.status(200).json({success: false, message: "Marksheet already uploaded ..." });
       }
-     
-      const newMarkSheet = new Marksheet({
-        markSheet: req.file.filename,
-        examId: req.body.examId,
-        studentId: req.body.studentId,
-        subjectCode: req.body.subjectCode,
-        department: req.body.department,
+      const imgResponse = await cloudinary.uploader.upload((req.file.originalname, {
+        folder: "avatar",
+        width: 150,
+        crop: "scale",
+    }))
+      const newMarkSheet = new Examsheet({
+        // markSheet: imgResponse.secure_url,
+        examId: examId,
+        studentId: studentId,
+        subjectCode: subjectCode,
+        department: department,
         
       });
         

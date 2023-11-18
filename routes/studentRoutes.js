@@ -59,7 +59,7 @@ router.post('/checkout', checkout)
 
 router.post('/verifyPayment', verifyPayment)
 
-router.post('/UploadMarksheet',uploadInfo.single("image"), UploadMarksheet)
+router.post('/UploadMarksheet', UploadMarksheet)
 
 
 
