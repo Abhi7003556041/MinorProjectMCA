@@ -18,7 +18,7 @@ const Home = () => {
 
     return (
         <div>
-            {store.student.isAuthenticated ? <>
+            {store.student.isAuthenticated ? <div id='trail'  style={{height:'100vh'}}>
                 <HomeHelper />
                 <div className="container">
                     <div className="row mt-5">
@@ -56,7 +56,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </> : (history.push('/'))}
+            </div> : (history.push('/'))}
            
             
         </div>

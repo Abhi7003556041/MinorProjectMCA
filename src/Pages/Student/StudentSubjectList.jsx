@@ -13,7 +13,7 @@ const StudentSubjectList = () => {
     },[])
     return (
         <>
-            {store.student.isAuthenticated ? <>
+            {store.student.isAuthenticated ? <div id='trail'  style={{height:'100vh'}}>
                 <HomeHelper />
                 <div className="container">
                     <div className="row mt-5">
@@ -44,7 +44,7 @@ const StudentSubjectList = () => {
                             </table>
                         </div>
                     </div>
-                </div></> : (history.push('/'))}
+                </div></div> : (history.push('/'))}
            
             </>
     )

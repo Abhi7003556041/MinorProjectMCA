@@ -18,8 +18,8 @@ const AboutPage = () => {
   const paragraphStyle = {
     fontSize: '18px',
     lineHeight: '1.5',
-    fontWeight: '400',
-    color:'#000'
+    fontWeight: '500',
+    color:'#fff'
   };
 
   const imageStyle = {
@@ -28,10 +28,10 @@ const AboutPage = () => {
     margin: '20px 0',
   };
   const coordinators = [
-    { name: 'John Doe', role: 'Project Coordinator', email: 'john@example.com', image: "https://www.timesofsports.com/wp-content/uploads/2023/07/Virat-.png"},
-    { name: 'Jane Smith', role: 'Assistant Coordinator', email: 'jane@example.com', image: "https://feeds.abplive.com/onecms/images/uploaded-images/2023/08/18/b9619d4df6087cb9bb4284b4f262b411169233418308724_original.jpg" },
-    { name: 'John Doe', role: 'Project Coordinator', email: 'john@example.com', image: "https://upload.wikimedia.org/wikipedia/commons/5/57/Techno_india_logo.jpg" },
-    { name: 'John Doe', role: 'Project Coordinator', email: 'john@example.com', image: "https://upload.wikimedia.org/wikipedia/commons/5/57/Techno_india_logo.jpg" },
+    { name: 'Abhijit Adak', role: 'Project Coordinator', email: 'john@example.com', image: require('../Style/Images/Scan.jpg')},
+    { name: 'Arijit Dey Sarkar', role: 'Assistant Coordinator', email: 'jane@example.com', image: require('../Style/Images/arijit.JPG') },
+    { name: 'Sudipta Haldar', role: 'Assistant Coordinator', email: 'john@example.com', image: require('../Style/Images/sudipta.jpeg')},
+    { name: 'Avik Ghosh', role: 'Assistant Coordinator', email: 'john@example.com', image: require('../Style/Images/image.jpg') },
 
     // Add more coordinators as needed
   ];
@@ -39,7 +39,7 @@ const AboutPage = () => {
     window.scrollTo(0,0)
     },[])
   return (
-    <div id="" style={aboutPageStyle}>
+    <div id="trail" style={aboutPageStyle}>
       <h1 style={headingStyle}>About Our College</h1>
       <CSSTransition in={true} appear={true} timeout={1000} classNames="fade" unmountOnExit>
         <img     
@@ -96,8 +96,8 @@ const AboutPage = () => {
             </div>
             <div style={styles.rightCard}>
               <h3 style={{color:'#000'}}>{coordinator.name}</h3>
-              <p style={{color:'#000'}}>{coordinator.role}</p>
-              <p style={{color:'#000'}}>Email: {coordinator.email}</p>
+              <p style={{color:'#fff',fontWeight:'500'}}>{coordinator.role}</p>
+              <p style={{color:'#fff',fontWeight:'500'}}>Email: {coordinator.email}</p>
             </div>
           </div>
         ))}
@@ -151,7 +151,7 @@ const styles = {
   image: {
     width: '200px',
     borderRadius: '5%',
-    height:'130px',
+    height:'150px',
     // marginBottom: '10px',
     transition: 'transform 0.5s ease-in-out',
     '&:hover': {

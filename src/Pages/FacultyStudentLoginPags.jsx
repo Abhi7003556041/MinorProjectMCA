@@ -292,7 +292,7 @@ window.scrollTo(0,0)
 
     <h3>Techno College<span> Hooghly</span></h3>
 
-    <p className="footer-links">
+    {/* <p className="footer-links">
         <a href="#" className="link-1">Home</a>
         
         <a href="#">Blog</a>
@@ -304,7 +304,7 @@ window.scrollTo(0,0)
         <a href="#">Faq</a>
         
         <a href="#">Contact</a>
-    </p>
+    </p> */}
   
     <p style={{color:'teal'}} className="footer">Techno College © 2002</p>
     <div>

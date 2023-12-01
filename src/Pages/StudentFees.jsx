@@ -71,13 +71,16 @@ export default function StudentFees() {
                     if(data){
                         FeePayment()
                     }
+                    else{
+                        FeePayment()
+                    }
 					console.log(data);
 				} catch (error) {
 					console.log(error);
 				}
 			},
             prefill: {
-                name: "Gaurav Kumar",
+                name: "Abhijit Adak",
                 email: "gaurav.kumar@example.com",
                 contact: "9999999999"
             },
@@ -91,8 +94,8 @@ export default function StudentFees() {
 		const rzp1 = new window.Razorpay(options);
 		rzp1.open();
 	};
-    const FeePayment = (e) => {
-        e.preventDefault()
+    const FeePayment = () => {
+        // e.preventDefault()
         axios({
             method: 'Post',
             url: url + "/api/student/FeePayment",
@@ -127,7 +130,7 @@ export default function StudentFees() {
     }, [store.errorHelper])
   return (
     <>
-    {store.student.isAuthenticated ? <>
+    {store.student.isAuthenticated ? <div  id='trail'  style={{height:'100vh'}}>
         <HomeHelper />
 
     <div className="container" style={{backgroundColor:'white',paddingTop:'20px',paddingLeft:'30px'}}>
@@ -201,7 +204,7 @@ export default function StudentFees() {
 
 
     </div>
-   </>
+   </div>
     :
 
     (history.push('/'))

@@ -67,7 +67,7 @@ const StudentDetails = () => {
   
     return (
         <div>
-            {store.student.isAuthenticated ? <>
+            {store.student.isAuthenticated ? <div id='trail'  style={{height:'100vh'}}>
                 <HomeHelper />
                 <div className="container">
                     {result.length === 0 && <div className="row">
@@ -86,7 +86,7 @@ const StudentDetails = () => {
                                 <div className="col">
                                     <form noValidate onSubmit={formHandler}>
                                         <div className="form-group">
-                                            <label htmlFor="branchId">Branch</label>
+                                            <label htmlFor="branchId" style={{color:'#fff',fontWeight:'bold'}}>Branch</label>
                                             <select onChange={(e) => setDepartment(e.target.value)} className="form-control" id="bramchId">
                                                 <option>Select</option>
                                                 <option value="E.C.E">E.C.E</option>
@@ -98,7 +98,7 @@ const StudentDetails = () => {
                                             </select>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="yearId">Year</label>
+                                            <label htmlFor="yearId" style={{color:'#fff',fontWeight:'bold'}}>Year</label>
                                             <select onChange={(e) => setYear(e.target.value)} className="form-control" id="yearId">
                                                 <option>Select</option>
                                                 <option value="1">1</option>
@@ -108,7 +108,7 @@ const StudentDetails = () => {
                                             </select>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="sectionId">Section</label>
+                                            <label htmlFor="sectionId" style={{color:'#fff',fontWeight:'bold'}}>Section</label>
                                             <select onChange={(e) => setSection(e.target.value)} className="form-control" id="sectionId">
                                                 <option>Select</option>
                                                 <option value="A">A</option>
@@ -191,7 +191,7 @@ const StudentDetails = () => {
                         </div>
                     </div>}
 
-                </div></> : (history.push('/'))}
+                </div></div> : (history.push('/'))}
             
         </div>
     )

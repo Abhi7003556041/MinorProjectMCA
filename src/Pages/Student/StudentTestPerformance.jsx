@@ -18,7 +18,7 @@ const StudentTestPerformance = () => {
     return (
 
         <>
-            {store.student.isAuthenticated ? <>
+            {store.student.isAuthenticated ? <div id='trail'  style={{height:'100vh'}}>
                 <HomeHelper />
 
                 <div className="container">
@@ -130,7 +130,7 @@ const StudentTestPerformance = () => {
                         </div>
 
                     }
-                </div></> : (history.push('/'))}
+                </div></div> : (history.push('/'))}
 
         </>
 

@@ -67,9 +67,9 @@ const Home = () => {
                                 <li className="nav-item">
                                     <button type="button" className="btn" onClick={()=>history.push('/student/examFees')}><li style={{fontWeight:'bold',color:'#fff'}}>EXAM FEES</li></button>
                                 </li>
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <button type="button" className="btn " onClick={()=>history.push('/student/uploadMarksheet')}><li style={{fontWeight:'bold',color:'#fff'}}>EXAMSHEET</li></button>
-                                </li>
+                                </li> */}
                                 <li className="nav-item">
                                     <button type="button" className="btn" onClick={()=>history.push('/studentDetails')}><li style={{fontWeight:'bold',color:'#fff'}}>NEW CONVERSATION ({store.student.newerChats.length})</li></button>
                                 </li>

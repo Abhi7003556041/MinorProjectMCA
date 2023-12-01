@@ -22,7 +22,7 @@ const RecieverUserDetails = (props) => {
 
     return (
         <div>
-            {store.student.isAuthenticated ? <>
+            {store.student.isAuthenticated ? <div id='trail' style={{height:'100vh'}}>
                 <HomeHelper />
                 <div className="container">
                     <div className="row mt-5">
@@ -89,7 +89,7 @@ const RecieverUserDetails = (props) => {
 
 
 
-            </> : (history.push('/'))}
+            </div> : (history.push('/'))}
         </div>
 
     )

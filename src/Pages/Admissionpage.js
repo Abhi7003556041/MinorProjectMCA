@@ -6,10 +6,10 @@ const AdmissionPage = () => {
 
   const programsData = [
     {
-      title: "Bachelor of Science in Computer Science",
+      title: "Bachelor of Engineering in Computer Science",
       duration: "4 years",
       description: "Learn the fundamentals of computer science and programming.",
-      image:"https://upload.wikimedia.org/wikipedia/commons/5/57/Techno_india_logo.jpg"
+      image:"https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2023/06/software-engineer.jpeg.jpg"
     },
     {
       title: "Bachelor of Engineering in Mechanical Engineering",
@@ -18,7 +18,7 @@ const AdmissionPage = () => {
       image: "https://exploreengineering.ca/sites/default/files/2020-02/NEM_mechanical.jpg"
     },
     {
-      title: "Bachelor of Arts in Electrical Engineering",
+      title: "Bachelor of Engineering in Electrical Engineering",
       duration: "4 years",
       description: "Gain knowledge in electrical systems and technology.",
       image: "https://images.ctfassets.net/gogvzi849aaj/6E1LznxWtjZG7IfhHx3aU4/32fe9f15ea2c7ebb42ca54ed9dd8dd5c/Engineering_Hero.jpg?fm=webp&q=50"

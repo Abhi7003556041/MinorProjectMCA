@@ -51,18 +51,18 @@ const StudentUpdateProfile = () => {
     }
         return (
             <div >
-                {store.student.isAuthenticated ? <>
+                {store.student.isAuthenticated ? <div id='trail'  style={{height:'100vh'}}>
                     <HomeHelper />
                     <div className="container mt-5">
                         <div className="row ">
                             <div className="col-md-5 w-100 m-auto">
                                 <form onSubmit={formHandler}>
                                     <div className="form-group">
-                                        <label htmlFor="inputId">Profile Picture</label>
+                                        <label style={{color:'#fff',fontWeight:'bold'}} htmlFor="inputId">Profile Picture</label>
                                         <input required className="form-control" type="file" accept=".jpg,.png,.jpeg" id="inputId" onChange={imagehandler}></input>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="genderId">Gender</label>
+                                        <label style={{color:'#fff',fontWeight:'bold'}} htmlFor="genderId">Gender</label>
                                         <select onChange={(e) => setGender(e.target.value)} className="form-control" id="genderId">
                                             <option>Select</option>
                                             <option value="Male">Male</option>
@@ -71,19 +71,19 @@ const StudentUpdateProfile = () => {
                                         </select>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="numberId">Contact Number</label>
+                                        <label style={{color:'#fff',fontWeight:'bold'}} htmlFor="numberId">Contact Number</label>
                                         <input onChange={(e) => setContactNumber(e.target.value)} required type="number" className="form-control" id="numberId" />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="fatherId">Father Name</label>
+                                        <label style={{color:'#fff',fontWeight:'bold'}} htmlFor="fatherId">Father Name</label>
                                         <input onChange={(e) => setFatherName(e.target.value)} type="text" className="form-control" id="fatherId" />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="fathercnId">Father Contact Number</label>
+                                        <label style={{color:'#fff',fontWeight:'bold'}} htmlFor="fathercnId">Father Contact Number</label>
                                         <input onChange={(e) => setFatherContactNumber(e.target.value)} type="number" className="form-control" id="fathercnId" />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="aadharId">Aadhar Card Number</label>
+                                        <label style={{color:'#fff',fontWeight:'bold'}} htmlFor="aadharId">Aadhar Card Number</label>
                                         <input onChange={(e) => setAadharCard(e.target.value)} type="number" className="form-control" id="aadharId" />
                                     </div>
                                     <button type="submit" className="btn btn-primary">Update</button>
@@ -91,7 +91,7 @@ const StudentUpdateProfile = () => {
                             </div>
                         </div>
                     </div>
-                </> : (history.push('/'))}
+                </div> : (history.push('/'))}
                 
             </div>
         )

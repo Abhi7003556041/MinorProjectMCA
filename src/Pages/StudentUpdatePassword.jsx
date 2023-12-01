@@ -25,11 +25,13 @@ const StudentUpdatePassword = () => {
     }, [store.errorHelper])
     const formHandler = (e) => {
         e.preventDefault()
-        dispatch(studentUpdatePassword({ registrationNumber: store.student.student.student.registrationNumber, oldPassword, newPassword, confirmNewPassword }))
+        dispatch(studentUpdatePassword({ registrationNumber: store.student.student.student.registrationNumber,
+             oldPassword, newPassword, confirmNewPassword }))
+        history.push('/')     
     }
     return (
         <div>
-            {store.student.isAuthenticated ? <>
+            {store.student.isAuthenticated ? <div  id='trail'  style={{height:'100vh'}}>
                 <HomeHelper />
                 <div className="container m-5">
                     <div className="row m-5">
@@ -62,7 +64,7 @@ const StudentUpdatePassword = () => {
                             </form>
                         </div>
                     </div>
-                </div></> : (history.push('/'))}
+                </div></div> : (history.push('/'))}
 
            
 
